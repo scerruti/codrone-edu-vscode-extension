@@ -1,0 +1,77 @@
+{
+  "name": "codrone-edu-vscode-extension",
+  "displayName": "CoDrone EDU Control Panel",
+  "description": "VS Code extension for monitoring and controlling CoDrone EDU drones with safety overrides",
+  "version": "0.1.0",
+  "publisher": "scerruti",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "drone",
+    "codrone",
+    "robotics",
+    "education"
+  ],
+  "activationEvents": [
+    "onCommand:codrone.openPanel"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codrone.openPanel",
+        "title": "CoDrone: Open Control Panel"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codrone-explorer",
+          "title": "CoDrone",
+          "icon": "media/codrone-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codrone-explorer": [
+        {
+          "id": "coDronePanel",
+          "name": "Control Panel",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.21.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scerruti/codrone-edu-vscode-extension.git"
+  },
+  "author": "scerruti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scerruti/codrone-edu-vscode-extension/issues"
+  },
+  "homepage": "https://github.com/scerruti/codrone-edu-vscode-extension#readme"
+}
